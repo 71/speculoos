@@ -119,8 +119,7 @@ impl<'s, T> VecAssertions for Spec<'s, &'s Vec<T>> {
 
 #[cfg(test)]
 mod tests {
-
-    use super::super::prelude::*;
+    use crate::prelude::*;
 
     #[test]
     fn should_not_panic_if_vec_length_matches_expected() {

@@ -139,10 +139,7 @@ impl<'s, T: Float + Debug> FloatAssertions<T> for Spec<'s, T> {
 
 #[cfg(test)]
 mod tests {
-
-    use super::super::prelude::*;
-
-    use num::Float;
+    use crate::prelude::*;
 
     #[test]
     fn is_less_than_should_allow_multiple_borrow_forms() {
@@ -217,6 +214,11 @@ mod tests {
     fn should_panic_if_value_is_less_than_or_not_equal_to_expected() {
         assert_that(&2).is_greater_than_or_equal_to(&3);
     }
+}
+
+#[cfg(all(test, feature = "num"))]
+mod num_tests {
+    use num::Float;
 
     #[test]
     fn is_close_to_should_allow_multiple_borrow_forms() {

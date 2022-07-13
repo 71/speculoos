@@ -1,27 +1,21 @@
-[workspace]
-members = [
-    ".",
-    "./derive",
-]
-
 [package]
-name = "speculoos"
+name = "speculoos-derive"
 version = "0.10.0"
+edition = "2021"
 authors = [
-    "cfrancia <cfrancia@users.noreply.github.com>",
-    "oknozor <paul.delafosse@protonmail.com>",
     "Grégoire Geis <opensource@gregoirege.is>",
 ]
 license = "Apache-2.0"
 description = "Fluent test assertions"
 repository = "https://github.com/71/speculoos"
-edition = "2021"
 readme = "README.md"
 keywords = ["fluent", "testing", "matchers", "assert", "assertions"]
 
-[features]
-default = []
+[lib]
+proc-macro = true
 
 [dependencies]
-speculoos-derive = { path = "./derive" }
-num = { version = "0.1.36", optional = true }
+ident_case = "1.0"
+proc-macro2 = "1.0"
+quote = "1.0"
+syn = { version = "1.0", features = ["derive"] }
